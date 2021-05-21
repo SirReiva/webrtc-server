@@ -39,7 +39,7 @@ function initSocket(socket) {
 }
 
 module.exports = (server) => {
-    io({ path: "/bridge", serveClient: false })
-        .listen(server, { log: true })
+    io({ path: "/bridge", serveClient: false, origins: ["*"] })
+        .listen(server, { log: true, origins: ["*"] })
         .on("connection", initSocket);
 };
